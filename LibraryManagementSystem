@@ -12,6 +12,12 @@ import DataBase.;
 public class LibraryManagementSystem{
     private LibDB<Book> bookDB;
     private HashMap<User, Book> loanDB;
+    private LiDB<User> userDB;
+
+/**
+*  LibraryManagementSystem 생성자
+*
+*/
 
 public class LibraryManagementSystem{
     private LibDB<Book> bookDB = new LibDB<>();
