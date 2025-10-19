@@ -15,13 +15,17 @@ public class Book extends DB_Element
     private String title;
     private int year;
     
-    public Book(){
-        
+    public Book(String bookID, String title, String author, String publisher, int year){
+        this.bookID = bookID;
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.year = year;
     }
     public String getID(){
         return this.bookID;
     }
     public String toString(){
-        return "";
+        return "(" + bookID + ") "+ title + ", " + author + " , " + publisher +" , " + year;
     }
 }
