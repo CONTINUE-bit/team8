@@ -53,19 +53,12 @@ public class LibraryManagementSystem{
      * @param  y  메소드의 샘플 파라미터
      * @return    x 와 y의 합
      */
-    public void printLoanList()
-    {
-        Set<User> keySet = loanDB.keySet();      // 이용자 집합 가져오기
-        Iterator<User> it = keySet.iterator();   // Iterator 사용 (요구사항)
-
-        while(it.hasNext())                      // while 반복
-        {
-            User user = it.next();
-            Book book = loanDB.get(user);
-
-            // User.toString() → [학번] 이름
-            // Book.toString() → (책ID) 제목, 저자 , 출판사 , 연도
-            System.out.println(user.toString() + " ===> " + book.toString());
+    public void printLoanList() {
+        Iterator<User> it = loanDB.keySet().iterator();
+        while (it.hasNext()) {
+            User u = it.next();
+            Book b = loanDB.get(u);
+            System.out.println(u.toString() + " ===> " + b.toString());
         }
     }
 
@@ -92,17 +85,18 @@ public class LibraryManagementSystem{
             while(it.hasNext()) {
                 String record = it.next();
                 String[] a = record.split("/");
-
                 int year = Integer.parseInt(a[4]);
+                
                 Book book = new Book(a[2], a[0], a[3], a[1], year);
                 bookDB.addElement(book);
             }
-
             sc.close();
             fr.close();
-        } catch(IOException e) {
+        } 
+        catch(IOException e) {
             System.out.println("파일을 읽을 수 없습니다.");
-        } catch(Exception e) {
+        } 
+        catch(Exception e) {
             System.out.println("데이터를 처리하는 중 오류가 발생했습니다.");
         }
 
@@ -117,33 +111,35 @@ public class LibraryManagementSystem{
      */
     public LibDB<User> setUserDB(String path)
     {
-        try {
+        try{
             FileReader fr = new FileReader(path);
             Scanner sc = new Scanner(fr);
 
             ArrayList<String> list = new ArrayList<String>();
-            while (sc.hasNextLine()) {
+            while (sc.hasNextLine()){
                 String line = sc.nextLine();
                 if (!line.equals("")) list.add(line);
             }
 
             // for문 사용 (요구사항)
-            for (int i = 0; i < list.size(); i++) {
+            for (int i = 0; i < list.size(); i++){
                 String rec = list.get(i);
                 String[] a = rec.split("/");     // stID/name
 
                 int id = Integer.parseInt(a[0]);
                 String name = a[1];
 
-                User u = new User(id, name);
-                userDB.addElement(u);
+                User user = new User(id, name);
+                userDB.addElement(user);
             }
 
             sc.close();
             fr.close();
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             System.out.println("user 파일을 읽을 수 없습니다.");
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             System.out.println("user 처리 중 오류 발생");
         }
 
