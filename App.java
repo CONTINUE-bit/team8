@@ -2,9 +2,12 @@ import MyClass.*;
 import DataBase.*;
 import java.io.*;
 import java.util.*;
+
 /**
- * App 클래스
- * 프로그램의 진입점. 전체 흐름을 제어한다.
+ * App을 실행하는 클래스
+ *
+ * @author (2020310059 최승빈)
+ * @version (2025.10.20)
  */
 public class App {
     public static void main(String[] args) {
@@ -13,12 +16,12 @@ public class App {
         
         // ② 이용자 DB 설정 및 출력
         LibDB<User> userDB = lms.setUserDB("C:\\Temp\\UserData2025.txt");
-        System.out.println("----- 이용자 목록 출력 -----");
+        System.out.println("----- 이용자 목록 -----");
         lms.printDB(userDB);
 
         // ③ 도서 DB 설정 및 출력
         LibDB<Book> bookDB = lms.setBookDB("C:\\Temp\\BookData2025.txt");
-        System.out.println("----- 도서 목록 출력 -----");
+        System.out.println("----- 도서 목록 -----");
         lms.printDB(bookDB);
 
         // ④ 대출 작업 3건 수행
@@ -29,6 +32,5 @@ public class App {
         // ⑤ 대출 현황 출력
         System.out.println("----- 대출 현황 -----");
         lms.printLoanList();
-        System.out.println("------------------------");
     }
 }
