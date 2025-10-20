@@ -42,7 +42,7 @@ public class LibraryManagementSystem{
      * @param  y  메소드의 샘플 파라미터
      * @return    x 와 y의 합
      */
-    public static <T extends DB_Element> void printDB(LibDB<T> db)
+    public <T extends DB_Element> void printDB(LibDB<T> db)
     {
         db.printAllElements();
     }
