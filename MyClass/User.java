@@ -7,16 +7,16 @@ package MyClass;
  * @version (버전 번호 또는 작성한 날짜)
  */
 public class User extends DB_Element {
-    private String studentID;
+    private Integer studentID;
     private String name;
 
-    public User(String studentID, String name) {
+    public User(Integer studentID, String name) {
         this.studentID = studentID;
         this.name = name;
     }
 
     public String getID() {
-        return studentID;
+        return studentID.toString();
     }
 
     public String toString() {
