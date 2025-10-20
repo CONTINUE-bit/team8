@@ -14,12 +14,12 @@ public class App {
         // ② 이용자 DB 설정 및 출력
         LibDB<User> userDB = lms.setUserDB("UserData2025.txt");
         System.out.println("----- 이용자 목록 -----");
-        LibraryManagementSystem.printDB(userDB);
+        lms.printDB(userDB);
 
         // ③ 도서 DB 설정 및 출력
         LibDB<Book> bookDB = lms.setBookDB("BookData2025.txt");
         System.out.println("----- 도서 목록 -----");
-        LibraryManagementSystem.printDB(bookDB);
+        lms.printDB(bookDB);
 
         // ④ 대출 작업 3건 수행
         lms.borrowBook("2025320001", "B02");
