@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * App을 실행하는 클래스
+ * 도서관 관리 시스템을 실행하는 메인 클래스
  *
  * @author (2020310059 최승빈)
  * @version (2025.10.20)
