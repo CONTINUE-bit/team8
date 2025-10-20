@@ -4,10 +4,10 @@ import java.io.*;
 import java.util.*;
 
 /**
- * LibraryManagementSystem 클래스의 설명을 작성하세요.
+ * 책, 이용자, 대출 DB를 처리하는 클래스
  *
- * @author (작성자)
- * @version (버전 번호 또는 작성한 날짜)
+ * @author (2022320036 유재윤)
+ * @version (2025.10.20)
  */
 public class LibraryManagementSystem{
     private LibDB<Book> bookDB;
@@ -15,8 +15,11 @@ public class LibraryManagementSystem{
     private HashMap<User, Book> loanDB;
 
     /**
-     *  LibraryManagementSystem 클래스의 객체 생성자
+     *  내용이 비어있는 책, 이용자, 대출 DB를 생성하는 생성자
      *
+     *  @param  bookDB  책DB
+     *  @param  userDB  이용자DB
+     *  @param  loanDB  대출DB
      */
     public LibraryManagementSystem(){
         this.bookDB = new LibDB<Book>();
@@ -25,10 +28,10 @@ public class LibraryManagementSystem{
     }
 
     /**
-     * 예제 메소드 - 이 주석을 사용자의 맞게 바꾸십시오
+     * 이용자와 책의 ID를 대출에 정보를 등록하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     *  @param  userID  이용자ID
+     *  @param  bookID  책ID
      */
     public void borrowBook(String userID, String bookID){
         User user = userDB.findElement(userID);
@@ -37,21 +40,18 @@ public class LibraryManagementSystem{
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * DB의 모든 요소를 출력하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     *  @param  db    출력할 DB
+     *  @param  <T>   DB의 요소 타입
      */
-    public <T extends DB_Element> void printDB(LibDB<T> db)
+    public static <T extends DB_Element> void printDB(LibDB<T> db)
     {
         db.printAllElements();
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
-     *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     *  대출 현황을 한 줄씩 출력하는 메소드
      */
     public void printLoanList() {
         Iterator<User> it = loanDB.keySet().iterator();
@@ -63,10 +63,10 @@ public class LibraryManagementSystem{
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * 파일에서 책의 정보를 읽어들이고 책DB에 추가하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     *  @param  bookFile  파일의 입력 경로
+     *  @return    추가된 책DB 반환
      */
     public LibDB<Book> setBookDB(String bookFile)
     {
@@ -101,10 +101,10 @@ public class LibraryManagementSystem{
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * 파일에서 이용자의 정보를 읽어들이고 이용자DB에 추가하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     *  @param  path  파일의 입력 경로
+     *  @return  추가된 이용자DB 반환
      */
     public LibDB<User> setUserDB(String path)
     {
@@ -118,10 +118,9 @@ public class LibraryManagementSystem{
                 if (!line.equals("")) list.add(line);
             }
 
-            // for문 사용 (요구사항)
             for (int i = 0; i < list.size(); i++){
                 String rec = list.get(i);
-                String[] a = rec.split("/");     // stID/name
+                String[] a = rec.split("/");  
 
                 int id = Integer.parseInt(a[0]);
                 String name = a[1];
@@ -140,5 +139,4 @@ public class LibraryManagementSystem{
 
         return userDB;
     }
-
 }
