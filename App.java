@@ -12,12 +12,12 @@ public class App {
         LibraryManagementSystem lms = new LibraryManagementSystem();
         
         // ② 이용자 DB 설정 및 출력
-        LibDB<User> userDB = lms.setUserDB("UserData2025.txt");
+        LibDB<User> userDB = lms.setUserDB("C:\\Temp\\UserData2025.txt");
         System.out.println("----- 이용자 목록 -----");
         lms.printDB(userDB);
 
         // ③ 도서 DB 설정 및 출력
-        LibDB<Book> bookDB = lms.setBookDB("BookData2025.txt");
+        LibDB<Book> bookDB = lms.setBookDB("C:\\Temp\\BookData2025.txt");
         System.out.println("----- 도서 목록 -----");
         lms.printDB(bookDB);
 

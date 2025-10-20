@@ -94,16 +94,16 @@ public class LibraryManagementSystem{
                 String[] a = record.split("/");
 
                 int year = Integer.parseInt(a[4]);
-                Book book = new Book(a[2], a[0], a[3], a[1], year);
+                Book book = new Book(a[0], a[1], a[2], a[3], year);
                 bookDB.addElement(book);
             }
 
             sc.close();
             fr.close();
         } catch(IOException e) {
-            System.out.println("파일을 읽을 수 없습니다.");
+            System.out.println("Book 파일을 읽을 수 없습니다.");
         } catch(Exception e) {
-            System.out.println("데이터를 처리하는 중 오류가 발생했습니다.");
+            System.out.println("Book을(를) 처리하는 중 오류가 발생했습니다.");
         }
 
         return bookDB;
@@ -142,9 +142,9 @@ public class LibraryManagementSystem{
             sc.close();
             fr.close();
         } catch (IOException e) {
-            System.out.println("user 파일을 읽을 수 없습니다.");
+            System.out.println("User 파일을 읽을 수 없습니다.");
         } catch (Exception e) {
-            System.out.println("user 처리 중 오류 발생");
+            System.out.println("User을(를) 처리하는 중 오류가 발생했습니다.");
         }
 
         return userDB;
