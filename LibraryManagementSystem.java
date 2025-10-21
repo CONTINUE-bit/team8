@@ -107,9 +107,9 @@ public class LibraryManagementSystem{
      *  @param  path  파일의 입력 경로
      *  @return  추가된 이용자DB 반환
      */
-    public LibDB<User> setUserDB(String bookFile){
+    public LibDB<User> setUserDB(String userFile){
         try{
-            FileReader fr = new FileReader(bookFile);
+            FileReader fr = new FileReader(userFile);
             Scanner sc = new Scanner(fr);
 
             ArrayList<String> list = new ArrayList<String>();
