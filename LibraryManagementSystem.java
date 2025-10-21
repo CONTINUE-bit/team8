@@ -45,17 +45,16 @@ public class LibraryManagementSystem{
      *  @param  db    출력할 DB
      *  @param  <T>   DB의 요소 타입
      */
-    public <T extends DB_Element> void printDB(LibDB<T> db)
-    {
+    public <T extends DB_Element> void printDB(LibDB<T> db){
         db.printAllElements();
     }
 
     /**
      *  대출 현황을 한 줄씩 출력하는 메소드
      */
-    public void printLoanList() {
+    public void printLoanList(){
         Iterator<User> it = loanDB.keySet().iterator();
-        while (it.hasNext()) {
+        while (it.hasNext()){
             User u = it.next();
             Book b = loanDB.get(u);
             System.out.println(u.toString() + " ===> " + b.toString());
@@ -68,21 +67,20 @@ public class LibraryManagementSystem{
      *  @param  bookFile  파일의 입력 경로
      *  @return    추가된 책DB 반환
      */
-    public LibDB<Book> setBookDB(String bookFile)
-    {
-        try {
+    public LibDB<Book> setBookDB(String bookFile){
+        try{
             FileReader fr = new FileReader(bookFile);
             Scanner sc = new Scanner(fr);
             ArrayList<String> lines = new ArrayList<String>();
 
-            while(sc.hasNextLine()) {
+            while(sc.hasNextLine()){
                 String line = sc.nextLine();
                 if(!line.equals(""))
                     lines.add(line);
             }
 
             Iterator<String> it = lines.iterator();
-            while (it.hasNext()) {
+            while (it.hasNext()){
                 StringTokenizer st = new StringTokenizer(it.next(), "/");
                 Book book = new Book(
                         st.nextToken(),
@@ -96,10 +94,12 @@ public class LibraryManagementSystem{
             
             sc.close();
             fr.close();
-        } catch(IOException e) {
+        }
+        catch(IOException e){
             System.out.println("Book 파일을 읽을 수 없습니다.");
-        } catch(Exception e) {
-            System.out.println("Book을(를) 처리하는 중 오류가 발생했습니다.");
+        }
+        catch(Exception e){
+            System.out.println("Book을 처리하는 중 오류가 발생했습니다.");
         }
 
         return bookDB;
@@ -111,8 +111,7 @@ public class LibraryManagementSystem{
      *  @param  path  파일의 입력 경로
      *  @return  추가된 이용자DB 반환
      */
-    public LibDB<User> setUserDB(String path)
-    {
+    public LibDB<User> setUserDB(String path){
         try{
             FileReader fr = new FileReader(path);
             Scanner sc = new Scanner(fr);
@@ -131,10 +130,12 @@ public class LibraryManagementSystem{
 
             sc.close();
             fr.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e){
             System.out.println("User 파일을 읽을 수 없습니다.");
-        } catch (Exception e) {
-            System.out.println("User을(를) 처리하는 중 오류가 발생했습니다.");
+        }
+        catch (Exception e){
+            System.out.println("User를 처리하는 중 오류가 발생했습니다.");
         }
 
         return userDB;
