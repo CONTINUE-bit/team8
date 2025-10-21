@@ -15,7 +15,7 @@ public class LibraryManagementSystem{
     private HashMap<User, Book> loanDB;
 
     /**
-     *  내용이 비어있는 책, 이용자, 대출 DB를 생성하는 생성자
+     *  내부 데이터가 비어있는 책, 이용자, 대출 DB를 생성하는 생성자
      */
     public LibraryManagementSystem(){
         this.bookDB = new LibDB<Book>();
