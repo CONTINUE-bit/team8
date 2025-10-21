@@ -45,7 +45,7 @@ public class LibraryManagementSystem{
      *  @param  db    출력할 DB
      *  @param  <T>   DB의 요소 타입
      */
-    public static <T extends DB_Element> void printDB(LibDB<T> db)
+    public <T extends DB_Element> void printDB(LibDB<T> db)
     {
         db.printAllElements();
     }
