@@ -82,13 +82,18 @@ public class LibraryManagementSystem{
             }
 
             Iterator<String> it = lines.iterator();
-            while(it.hasNext()) {
-                String record = it.next();
-                String[] a = record.split("/");
-                int year = Integer.parseInt(a[4]);
-                Book book = new Book(a[0], a[1], a[2], a[3], year);
+            while (it.hasNext()) {
+                StringTokenizer st = new StringTokenizer(it.next(), "/");
+                Book book = new Book(
+                        st.nextToken(),
+                        st.nextToken(),
+                        st.nextToken(),
+                        st.nextToken(),               
+                        Integer.parseInt(st.nextToken())
+                    );
                 bookDB.addElement(book);
             }
+            
             sc.close();
             fr.close();
         } catch(IOException e) {
@@ -119,13 +124,8 @@ public class LibraryManagementSystem{
             }
 
             for (int i = 0; i < list.size(); i++){
-                String rec = list.get(i);
-                String[] a = rec.split("/");  
-
-                int id = Integer.parseInt(a[0]);
-                String name = a[1];
-
-                User user = new User(id, name);
+                StringTokenizer st = new StringTokenizer(list.get(i), "/");
+                User user = new User(Integer.parseInt(st.nextToken()), st.nextToken());
                 userDB.addElement(user);
             }
 
