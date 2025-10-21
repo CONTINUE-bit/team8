@@ -66,11 +66,11 @@ public class LibraryManagementSystem{
     public LibDB<Book> setBookDB(String bookFile){
         try{
             FileReader fr = new FileReader(bookFile);
-            Scanner sc = new Scanner(fr);
+            Scanner scan = new Scanner(fr);
             ArrayList<String> lines = new ArrayList<String>();
 
-            while(sc.hasNextLine()){
-                String line = sc.nextLine();
+            while(scan.hasNextLine()){
+                String line = scan.nextLine();
                 if(!line.equals(""))
                     lines.add(line);
             }
@@ -88,7 +88,7 @@ public class LibraryManagementSystem{
                 bookDB.addElement(book);
             }
             
-            sc.close();
+            scan.close();
             fr.close();
         }
         catch(IOException e){
@@ -110,11 +110,11 @@ public class LibraryManagementSystem{
     public LibDB<User> setUserDB(String userFile){
         try{
             FileReader fr = new FileReader(userFile);
-            Scanner sc = new Scanner(fr);
+            Scanner scan = new Scanner(fr);
 
             ArrayList<String> list = new ArrayList<String>();
-            while (sc.hasNextLine()){
-                String line = sc.nextLine();
+            while (scan.hasNextLine()){
+                String line = scan.nextLine();
                 if (!line.equals("")) list.add(line);
             }
 
@@ -124,7 +124,7 @@ public class LibraryManagementSystem{
                 userDB.addElement(user);
             }
 
-            sc.close();
+            scan.close();
             fr.close();
         }
         catch (IOException e){
