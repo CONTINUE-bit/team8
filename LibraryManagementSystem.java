@@ -16,10 +16,6 @@ public class LibraryManagementSystem{
 
     /**
      *  내용이 비어있는 책, 이용자, 대출 DB를 생성하는 생성자
-     *
-     *  @param  bookDB  책DB
-     *  @param  userDB  이용자DB
-     *  @param  loanDB  대출DB
      */
     public LibraryManagementSystem(){
         this.bookDB = new LibDB<Book>();
