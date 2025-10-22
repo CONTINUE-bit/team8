@@ -66,11 +66,11 @@ public class LibraryManagementSystem{
     public LibDB<Book> setBookDB(String bookFile){
         try{
             FileReader fr = new FileReader(bookFile);
-            Scanner scan = new Scanner(fr);
+            Scanner sc = new Scanner(fr);
             ArrayList<String> lines = new ArrayList<String>();
 
-            while(scan.hasNextLine()){
-                String line = scan.nextLine();
+            while(sc.hasNextLine()){
+                String line = sc.nextLine();
                 if(!line.equals(""))
                     lines.add(line);
             }
@@ -88,7 +88,7 @@ public class LibraryManagementSystem{
                 bookDB.addElement(book);
             }
             
-            scan.close();
+            sc.close();
             fr.close();
         }
         catch(IOException e){
@@ -104,18 +104,19 @@ public class LibraryManagementSystem{
     /**
      * 파일에서 이용자의 정보를 읽어들이고 이용자DB에 추가하는 메소드
      *
-     *  @param  path  파일의 입력 경로
+     *  @param  userFile  파일의 입력 경로
      *  @return  추가된 이용자DB 반환
      */
     public LibDB<User> setUserDB(String userFile){
         try{
             FileReader fr = new FileReader(userFile);
-            Scanner scan = new Scanner(fr);
+            Scanner sc = new Scanner(fr);
 
             ArrayList<String> list = new ArrayList<String>();
-            while (scan.hasNextLine()){
-                String line = scan.nextLine();
-                if (!line.equals("")) list.add(line);
+            while (sc.hasNextLine()){
+                String line = sc.nextLine();
+                if (!line.equals(""))
+                    list.add(line);
             }
 
             for (int i = 0; i < list.size(); i++){
@@ -124,7 +125,7 @@ public class LibraryManagementSystem{
                 userDB.addElement(user);
             }
 
-            scan.close();
+            sc.close();
             fr.close();
         }
         catch (IOException e){
