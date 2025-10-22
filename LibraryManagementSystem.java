@@ -24,7 +24,7 @@ public class LibraryManagementSystem{
     }
 
     /**
-     * 이용자와 책의 ID를 대출에 정보를 등록하는 메소드
+     * 이용자와 책의 ID를 대출DB에 정보를 등록하는 메소드
      *
      *  @param  userID  이용자ID
      *  @param  bookID  책ID
