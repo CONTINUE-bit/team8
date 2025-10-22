@@ -50,7 +50,7 @@ public class LibraryManagementSystem{
      */
     public void printLoanList(){
         Iterator<User> it = loanDB.keySet().iterator();
-        while (it.hasNext()){
+        while(it.hasNext()){
             User u = it.next();
             Book b = loanDB.get(u);
             System.out.println(u.toString() + " ===> " + b.toString());
@@ -67,8 +67,8 @@ public class LibraryManagementSystem{
         try{
             FileReader fr = new FileReader(bookFile);
             Scanner sc = new Scanner(fr);
+            
             ArrayList<String> lines = new ArrayList<String>();
-
             while(sc.hasNextLine()){
                 String line = sc.nextLine();
                 if(!line.equals(""))
@@ -76,7 +76,7 @@ public class LibraryManagementSystem{
             }
 
             Iterator<String> it = lines.iterator();
-            while (it.hasNext()){
+            while(it.hasNext()){
                 StringTokenizer st = new StringTokenizer(it.next(), "/");
                 Book book = new Book(
                         st.nextToken(),
@@ -113,13 +113,13 @@ public class LibraryManagementSystem{
             Scanner sc = new Scanner(fr);
 
             ArrayList<String> list = new ArrayList<String>();
-            while (sc.hasNextLine()){
+            while(sc.hasNextLine()){
                 String line = sc.nextLine();
-                if (!line.equals(""))
+                if(!line.equals(""))
                     list.add(line);
             }
 
-            for (int i = 0; i < list.size(); i++){
+            for(int i = 0; i < list.size(); i++){
                 StringTokenizer st = new StringTokenizer(list.get(i), "/");
                 User user = new User(Integer.parseInt(st.nextToken()), st.nextToken());
                 userDB.addElement(user);
@@ -128,10 +128,10 @@ public class LibraryManagementSystem{
             sc.close();
             fr.close();
         }
-        catch (IOException e){
+        catch(IOException e){
             System.out.println("User 파일을 읽을 수 없습니다.");
         }
-        catch (Exception e){
+        catch(Exception e){
             System.out.println("User를 처리하는 중 오류가 발생했습니다.");
         }
 
