@@ -27,7 +27,7 @@ public class User extends DB_Element {
      * @return    이용자의 학번 반환
      */
     public String getID() {
-        return studentID.toString();
+        return this.studentID.toString();
     }
 
     /**
