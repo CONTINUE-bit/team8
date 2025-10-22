@@ -51,9 +51,9 @@ public class LibraryManagementSystem{
     public void printLoanList(){
         Iterator<User> it = loanDB.keySet().iterator();
         while(it.hasNext()){
-            User u = it.next();
-            Book b = loanDB.get(u);
-            System.out.println(u.toString() + " ===> " + b.toString());
+            User user = it.next();
+            Book book = loanDB.get(user);
+            System.out.println(user.toString() + " ===> " + book.toString());
         }
     }
 
