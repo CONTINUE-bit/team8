@@ -22,7 +22,7 @@ public class User extends DB_Element {
     }
 
     /**
-     * 이용자의 학번을 toString 형태의 문자열로 반환하는 메소드
+     * 이용자의 학번(Integer)을 문자열(String)로 변환하여 반환하는 메소드
      *
      * @return    이용자의 학번 반환
      */
