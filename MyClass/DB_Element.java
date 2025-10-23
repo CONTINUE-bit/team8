@@ -1,7 +1,7 @@
 package MyClass;
 
 /**
- * 도서관 DB의 공통 인터페이스인 추상 클래스
+ * User 클래스와 Book클래스의 상위 추상 클래스
  *
  * @author (2024320007 정회서)
  * @version (2025.10.20)
